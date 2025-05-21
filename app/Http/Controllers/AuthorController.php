@@ -16,4 +16,14 @@ class AuthorController extends Controller
             "data" => $authors
         ], 200);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'bio' => 'nullable|string',
+        ]);
+        $genre = Author::create($request->only('name', 'bio'));
+        return response()->json($genre, 201);
+    }
 }
