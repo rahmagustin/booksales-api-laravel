@@ -23,8 +23,8 @@ class AuthorController extends Controller
             'name' => 'required|string|max:255',
             'bio' => 'nullable|string',
         ]);
-        $genre = Author::create($request->only('name', 'bio'));
-        return response()->json($genre, 201);
+        $author = Author::create($request->only('name', 'bio'));
+        return response()->json($author, 201);
     }
 
     public function show(string $id) {
@@ -67,7 +67,7 @@ class AuthorController extends Controller
     }
 
     public function destroy(string $id) {
-        $author = Genre::find($id);
+        $author = Author::find($id);
 
         if (!$author) {
             return response()->json([

@@ -34,9 +34,5 @@ class GenreSeeder extends Seeder
                 'description' => 'Mengandung unsur magis, dunia fantasi, dan makhluk mitologi',
             ],
         ]);
-
-        foreach ($genres as $genre) {
-            Genre::create($genre);
-        }
     }
 }
